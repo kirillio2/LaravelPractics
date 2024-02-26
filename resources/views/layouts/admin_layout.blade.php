@@ -124,6 +124,25 @@
                             </li>
                           </ul>
                       </li>  
+
+
+                      <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-align-left"></i>
+                            <p>
+                                Расписание
+                                <i class="right fas fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="{{ url('admin_panel/schedule') }}" class="nav-link">
+                                  
+                                    <p>Посмотреть расписание</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>  
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -180,6 +199,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/admin/dist/js/pages/dashboard.js"></script>
     <script src="/admin/admin.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
 </body>
 
 </html>

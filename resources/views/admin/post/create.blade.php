@@ -4,6 +4,7 @@
 
 @section('content')
 <<<<<<< HEAD
+<<<<<<< HEAD
 <div class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -65,6 +66,8 @@
 </section>
 @endsection
 =======
+=======
+>>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
@@ -108,4 +111,7 @@
         </div><!-- /.container-fluid -->
     </section>
 @endsection
+<<<<<<< HEAD
+>>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
+=======
 >>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
