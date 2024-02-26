@@ -199,6 +199,8 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/admin/dist/js/pages/dashboard.js"></script>
     <script src="/admin/admin.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
 </body>
 
 </html>
