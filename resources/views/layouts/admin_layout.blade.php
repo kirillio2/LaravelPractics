@@ -78,63 +78,62 @@
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="./index.html" class="nav-link">
-                                      
+
                                         <p>Все статьи</p>
                                     </a>
                                 </li>
 
                                 <li class="nav-item">
-                                  <a href="#" class="nav-link">
-                                    
-                                      <p>Добавить статью</p>
-                                  </a>
-                              </li>
+                                    <a href="#" class="nav-link">
+
+                                        <p>Добавить статью</p>
+                                    </a>
+                                </li>
                             </ul>
-                        </li>  
+                        </li>
 
                         <li class="nav-item">
-                          <a href="#" class="nav-link">
-                              <i class="nav-icon fas fa-align-left"></i>
-                              <p>
-                                  Категории
-                                  <i class="right fas fa-angle-left"></i>
-                              </p>
-                          </a>
-                          <ul class="nav nav-treeview">
-                              <li class="nav-item">
-                                  <a href="{{ route('category.index') }}" class="nav-link">
-                                    
-                                      <p>Все категории</p>
-                                  </a>
-                              </li>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-align-left"></i>
+                                <p>
+                                    Категории
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ route('category.index') }}" class="nav-link">
 
-                              <li class="nav-item">
-                                <a href="{{ route('category.create') }}" class="nav-link">
-                                  
-                                    <p>Добавить категорию</p>
-                                </a>
-                            </li>
-                          </ul>
-                      </li>  
+                                        <p>Все категории</p>
+                                    </a>
+                                </li>
 
+                                <li class="nav-item">
+                                    <a href="{{ route('category.create') }}" class="nav-link">
 
-                      <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon fas fa-align-left"></i>
-                            <p>
-                                Расписание
-                                <i class="right fas fa-angle-left"></i>
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="{{ url('admin_panel/schedule') }}" class="nav-link">
-                                  
-                                    <p>Посмотреть расписание</p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>  
+                                        <p>Добавить категорию</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-calendar"></i>
+                                <p>
+                                    Расписание
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin_panel/schedule') }}" class="nav-link">
+
+                                        <p>Посмотреть расписание</p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->

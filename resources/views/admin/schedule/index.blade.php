@@ -4,45 +4,23 @@
 @section('content')
 
     {{-- <style>
-    .fc-timeGridWeek-view {
-        font-size: 12px;
-        line-height: 10px;
-        /* padding-top: 4px; */
-        /* Размер шрифта */
-    }
+        /* Стили для маленького события */
+.small-event .fc-title {
+    font-size: 12px;
+}
 
-    .fc-timeGridWeek-view .fc-time-grid {
-        font-size: 12px;
-        /* Размер шрифта для временной сетки */
-    }
-
-    .fc-timeGridWeek-view .fc-day-header {
-        font-size: 12px;
-        /* Размер шрифта для заголовков дней */
-    }
-
-    .custom-event {
-        font-size: 12px;
-        /* Размер шрифта */
-        white-space: normal;
-        /* Разрешаем перенос текста */
-        overflow: hidden;
-        /* Скрытие текста, который выходит за границы */
-        text-overflow: ellipsis;
-        /* Отображение многоточия, если текст слишком длинный */
-        height: auto !important;
-        /* Автоматическая высота */
-        width: 90% !important;
-        /* Ширина 90% от ячейки */
-    }
-</style> --}}
-
+/* Стили для большого события */
+.large-event .fc-title {
+    font-size: 16px;
+}
+    </style> --}}
     <script>
         // var jsonEventSources =
         //     '[{"events":[{"title":"event1","start":"2024-02-25"},{"title":"event2","start":"2024-02-26","end":"2024-02-27"},{"title":"event3","start":"2024-02-26T12:30:00"}],"color":"black","textColor":"yellow"}]';
         // var eventSources = JSON.parse(jsonEventSources);
         var eventSources = [{
             events: [{
+
                     title: 'История Казахстана',
                     start: '2024-02-25T12:30:00',
                     end: '2024-02-25T13:00:00'
@@ -60,7 +38,8 @@
                 {
                     title: 'Клиент-серверные технологии',
                     start: '2024-02-26T13:20:00',
-                    end: '2024-02-26T14:00:00',
+                    end: '2024-02-26T14:00:00'
+
 
                 }
             ],
@@ -68,16 +47,22 @@
     </script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             var calendarEl = document.getElementById('calendar');
 
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 locale: 'ru',
+                initialView: 'timeGridDay',
                 slotDuration: '00:30:00',
                 slotMinTime: '08:30:00',
                 slotMaxTime: '23:30:00',
                 eventDisplay: 'block',
                 firstDay: 1,
-                // aspectRatio: 2,
+                nowIndicator: true,
+                navLinks: true,
+
+
+
 
 
                 headerToolbar: {
@@ -90,42 +75,57 @@
                     month: 'Месяц',
                     week: 'Неделя',
                     day: 'День',
-                    list: 'Список'
+                    list: 'Список',
                 },
+                eventSources: eventSources,
+               
                 eventContent: function(arg) {
                     return {
                         html: '<div class="custom-event">' + arg.event.title + '</div>',
                         classNames: ['custom-event']
                     };
                 },
-                // views: {
-                //     dayGrid: {
-                //         dayMaxEventRows: 1, // Максимальное количество строк событий в ячейке дня
-                //         dayMaxEvents: true // Ограничивать количество событий, отображаемых в ячейке дня
-                //     },
-                //     timeGrid: {
+                views: {
+                    dayGrid: {
+                        dayMaxEventRows: 1
+                    },
+                    timeGrid: {
 
+                    },
 
+                    timeGridWeek: {
+                        
+                    },
 
-                //     },
+                    day: {
 
-                //     timeGridWeek: {
-                //         slotLabelInterval: '01:00',
-
-
-                //     },
-
-                //     day: {
-                //         // Параметры, применяемые к представлениям dayGridDay и timeGridDay
-                //         // nowIndicator: true // Отображать индикатор текущего времени
-                //     }
-                // },
-                eventSources: eventSources,
-                eventClick: function(info) {
-                    calendar.changeView('timeGridDay');
+                    }
                 },
 
+                eventClick: function(info) {
+                    var event = info.event;
+                    var title = event.title;
+                    var start = event.startStr;
+                    var end = event.endStr;
+
+                    var modal = $('#eventModal');
+                    modal.find('.modal-body').html('<b>Title:</b> ' + title + '<br><b>Start:</b> ' +
+                        start + '<br><b>End:</b> ' + end);
+                    modal.modal('show');
+                }
+
             });
+
+            // Функция для установки высоты календаря
+            function setCalendarHeight() {
+                var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body
+                    .clientHeight;
+                calendarEl.style.height = windowHeight + 'px';
+            }
+
+            // Вызываем функцию установки высоты календаря при загрузке страницы и при изменении размеров окна
+            setCalendarHeight();
+            window.addEventListener('resize', setCalendarHeight);
 
             // Устанавливаем пользовательское отображение событий
             calendar.setOption('eventContent', function(arg) {
@@ -169,20 +169,31 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-body p-0">
-                    <div id="calendar">
-
-                    </div>
-
-                    <!-- <div id="calendar-buttons">
-                                                                <button id="btn-week">Неделя 1</button>
-                                                                <button id="btn-week2">Неделя 2</button>
-                                                                <button id="btn-week3">Неделя 3</button>
-                                                            </div> -->
+                    <div id="calendar"></div>
                 </div>
                 <!-- /.card-body -->
             </div>
         </div><!-- /.container-fluid -->
     </section>
+
+
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm modal-dialog-centered" role="document"> <!-- Добавлен класс modal-dialog-centered -->
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="eventModalLabel">Дисциплина</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="eventInfo">
+                <!-- Здесь будет отображаться информация о событии -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 
     <!-- /.content -->
