@@ -27,6 +27,24 @@
     <link rel="stylesheet" href="/admin/plugins/daterangepicker/daterangepicker.css">
     <!-- summernote -->
     <link rel="stylesheet" href="/admin/plugins/summernote/summernote-bs4.min.css">
+    <script src="/admin/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="/admin/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="/admin/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -156,24 +174,7 @@
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="/admin/plugins/jquery/jquery.min.js"></script>
-    <!-- jQuery UI 1.11.4 -->
-    <script src="/admin/plugins/jquery-ui/jquery-ui.min.js"></script>
-    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
-    <script>
-        $.widget.bridge('uibutton', $.ui.button)
-    </script>
-    <!-- Bootstrap 4 -->
-    <script src="/admin/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- ChartJS -->
-    <script src="/admin/plugins/chart.js/Chart.min.js"></script>
-    <!-- Sparkline -->
-    <script src="/admin/plugins/sparklines/sparkline.js"></script>
-    <!-- JQVMap -->
-    <script src="/admin/plugins/jqvmap/jquery.vmap.min.js"></script>
-    <script src="/admin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
-    <!-- jQuery Knob Chart -->
-    <script src="/admin/plugins/jquery-knob/jquery.knob.min.js"></script>
+
     <!-- daterangepicker -->
     <script src="/admin/plugins/moment/moment.min.js"></script>
     <script src="/admin/plugins/daterangepicker/daterangepicker.js"></script>

@@ -15,6 +15,32 @@
 }
     </style> --}}
     <script>
+        $('body').delegate("#dropdownMenuButton", "click", function() {
+            var dropdownMenu = $(this).next('.card-body');
+            var collapsedCard = $(this).closest('.card');
+            collapsedCard.toggleClass('collapsed-card');
+
+            var icon = $(this).find('i');
+            icon.toggleClass('fa-minus fa-plus');
+
+        });
+
+        $(document).ready(function() {
+            function addTooltipId() {
+                var tooltipId = 'tooltip949932'; // ID элемента тултипа, который будет показан
+                $(this).attr('aria-describedby', tooltipId);
+            }
+
+            // Функция, которая будет вызываться при уходе курсора с элемента
+            function removeTooltipId() {
+                $(this).removeAttr('aria-describedby'); // Удаляем атрибут aria-describedby
+            }
+
+            // Устанавливаем обработчики событий на элементы с классом .btn-secondary
+            $('body').on("mouseenter", "a.btn-secondary", addTooltipId);
+            $('body').on("mouseleave", "a.btn-secondary", removeTooltipId);
+        });
+
         // var jsonEventSources =
         //     '[{"events":[{"title":"event1","start":"2024-02-25"},{"title":"event2","start":"2024-02-26","end":"2024-02-27"},{"title":"event3","start":"2024-02-26T12:30:00"}],"color":"black","textColor":"yellow"}]';
         // var eventSources = JSON.parse(jsonEventSources);
@@ -23,22 +49,73 @@
 
                     title: 'История Казахстана',
                     start: '2024-02-25T12:30:00',
-                    end: '2024-02-25T13:00:00'
+                    end: '2024-02-25T13:00:00',
+                    data: {
+                        title: "Заголовок события 1",
+                        content: '<div class="card card-primary collapsed-card">' +
+                            '<b>Преподователь:</b>' +
+                            '<div class="card-header">' +
+                            '<h4 class="card-title"> Альшанова Б.Х.</h4>' +
+                            '<div class="card-tools">' +
+                            '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
+                            '<i class="fas fa-plus"></i>' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="card-body" style="display: none;">' +
+                            'The body of the card fddddddddddddddd d dddddddddd' +
+                            '</div>' +
+                            '</div>' +
+
+                            '<div class="card card-primary collapsed-card">' +
+                            '<b>Материалы:</b>' +
+                            '<div class="card-header">' +
+                            '<h4 class="card-title">Материалы: ДОТ</h4>' +
+                            '<div class="card-tools">' +
+                            '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
+                            '<i class="fas fa-plus"></i>' +
+                            '</a>' +
+                            '</div>' +
+                            '</div>' +
+                            '<div class="card-body" style="display: none;">' +
+                            'The body of the card fddddddddddddddd d dddddddddd' +
+                            '</div>' +
+                            '</div>'
+                    }
                 },
                 {
+
+
                     title: 'Автоматизация бухгалтерского учета в 1С: Предприятие',
                     start: '2024-02-27T12:30:00',
-                    end: '2024-02-27T13:00:00'
+                    end: '2024-02-27T13:00:00',
+                    data: {
+                        title: "Заголовок события 2",
+                        content: "<b>Преподователь:</b> Альшанова Б.Х. </br> Контакты: +77773286688, </br>Alshanova47@mail.ru </br> <b>Материалы ДОТ:</b> <a>PDF</a> "
+                    }
                 },
                 {
                     title: 'Клиент-серверные технологии',
                     start: '2024-02-26T12:30:00',
-                    end: '2024-02-26T13:00:00'
+                    end: '2024-02-26T13:00:00',
+                    data: {
+                        title: "Заголовок события 3",
+                        content: "Подробная информация о событии 3цукап купук пук пукпу пуп упу у пп"
+                    }
                 },
                 {
                     title: 'Клиент-серверные технологии',
-                    start: '2024-02-26T13:20:00',
-                    end: '2024-02-26T14:00:00'
+                    start: '2024-02-28T13:20:00',
+                    end: '2024-02-28T14:00:00',
+                    data: {
+                        title: "Заголовок события 4",
+                        content: '<a role="button" class="btn btn-secondary" ' +
+                            'data-bs-toggle="tooltip" data-bs-placement="top" ' +
+                            'data-bs-custom-class="custom-tooltip" ' +
+                            'data-bs-title="This top tooltip is themed via CSS variables.">' +
+                            'Преподователь' +
+                            '</a>'
+                    }
 
 
                 }
@@ -60,16 +137,14 @@
                 firstDay: 1,
                 nowIndicator: true,
                 navLinks: true,
-
-
-
-
+                eventSources: eventSources,
 
                 headerToolbar: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
                 },
+
                 buttonText: {
                     today: 'Сегодня',
                     month: 'Месяц',
@@ -77,29 +152,18 @@
                     day: 'День',
                     list: 'Список',
                 },
-                eventSources: eventSources,
-               
+
                 eventContent: function(arg) {
                     return {
                         html: '<div class="custom-event">' + arg.event.title + '</div>',
                         classNames: ['custom-event']
                     };
                 },
+
                 views: {
                     dayGrid: {
                         dayMaxEventRows: 1
                     },
-                    timeGrid: {
-
-                    },
-
-                    timeGridWeek: {
-                        
-                    },
-
-                    day: {
-
-                    }
                 },
 
                 eventClick: function(info) {
@@ -107,13 +171,32 @@
                     var title = event.title;
                     var start = event.startStr;
                     var end = event.endStr;
+                    console.log(event);
 
-                    var modal = $('#eventModal');
-                    modal.find('.modal-body').html('<b>Title:</b> ' + title + '<br><b>Start:</b> ' +
-                        start + '<br><b>End:</b> ' + end);
-                    modal.modal('show');
+                    // Обращение к данным из объекта data
+                    var dataTitle = event.extendedProps.data.title;
+                    var dataContent = event.extendedProps.data.content;
+
+                    // Удалить предыдущий popover, если он есть
+                    $('.popover').remove();
+
+                    $(info.el).popover({
+                        title: title,
+                        placement: 'top',
+                        trigger: 'manual',
+                        content: dataContent,
+                        container: 'body',
+                        html: true,
+                        template: '<div class="popover" role="tooltip"><div class="arrow"></div><span class="btn btn-link float-right pop-close">x</span><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                    });
+
+                    // Показать popover
+                    $(info.el).popover('show');
+
+                    $('.pop-close').click(function() {
+                        $(info.el).popover('hide');
+                    });
                 }
-
             });
 
             // Функция для установки высоты календаря
@@ -176,22 +259,23 @@
         </div><!-- /.container-fluid -->
     </section>
 
-
-    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm modal-dialog-centered" role="document"> <!-- Добавлен класс modal-dialog-centered -->
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="eventModalLabel">Дисциплина</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body" id="eventInfo">
-                <!-- Здесь будет отображаться информация о событии -->
+    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <!-- Добавлен класс modal-dialog-centered -->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="eventModalLabel">Дисциплина</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="eventInfo">
+                    <!-- Здесь будет отображаться информация о событии -->
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
 
