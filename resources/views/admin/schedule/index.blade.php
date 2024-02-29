@@ -3,17 +3,19 @@
 @section('title', 'Расписание')
 @section('content')
 
-    {{-- <style>
-        /* Стили для маленького события */
-.small-event .fc-title {
-    font-size: 12px;
-}
+    <style>
+        .card-title {
+            font-size: 0.99rem;
+        }
 
-/* Стили для большого события */
-.large-event .fc-title {
-    font-size: 16px;
-}
-    </style> --}}
+        .card-primary {
+            width: 200px;
+        }
+        .card-header{
+            padding: 0.1rem 1.25rem;
+        }
+
+    </style>
     <script>
         $('body').delegate("#dropdownMenuButton", "click", function() {
             var dropdownMenu = $(this).next('.card-body');
@@ -53,9 +55,11 @@
                     data: {
                         title: "Заголовок события 1",
                         content: '<div class="card card-primary collapsed-card">' +
+                            '<b>Время: 12:30</b>' +
+                            '<b>Кабинет: 112A</b>' +
                             '<b>Преподователь:</b>' +
                             '<div class="card-header">' +
-                            '<h4 class="card-title"> Альшанова Б.Х.</h4>' +
+                            '<h4 class="card-title" style="font-size: 0.99rem;">Альшанова Б.Х.</h4>' +
                             '<div class="card-tools">' +
                             '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
                             '<i class="fas fa-plus"></i>' +
@@ -63,14 +67,14 @@
                             '</div>' +
                             '</div>' +
                             '<div class="card-body" style="display: none;">' +
-                            'The body of the card fddddddddddddddd d dddddddddd' +
+                            'Контакты: +77773286688, Alshanova47@mail.ru' +
                             '</div>' +
                             '</div>' +
 
                             '<div class="card card-primary collapsed-card">' +
                             '<b>Материалы:</b>' +
                             '<div class="card-header">' +
-                            '<h4 class="card-title">Материалы: ДОТ</h4>' +
+                            '<h4 class="card-title" style="font-size: 0.99rem;">Материалы ДОТ:</h4>' +
                             '<div class="card-tools">' +
                             '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
                             '<i class="fas fa-plus"></i>' +
@@ -78,14 +82,12 @@
                             '</div>' +
                             '</div>' +
                             '<div class="card-body" style="display: none;">' +
-                            'The body of the card fddddddddddddddd d dddddddddd' +
+                            '<a href="aa">PDF</a> Справочник путеводить 2023.pdf <br><br> <a href="aa">Запись</a> Острянина Т.К 19.02 10.30' +
                             '</div>' +
                             '</div>'
                     }
                 },
                 {
-
-
                     title: 'Автоматизация бухгалтерского учета в 1С: Предприятие',
                     start: '2024-02-27T12:30:00',
                     end: '2024-02-27T13:00:00',
@@ -116,8 +118,6 @@
                             'Преподователь' +
                             '</a>'
                     }
-
-
                 }
             ],
         }];
@@ -171,7 +171,6 @@
                     var title = event.title;
                     var start = event.startStr;
                     var end = event.endStr;
-                    console.log(event);
 
                     // Обращение к данным из объекта data
                     var dataTitle = event.extendedProps.data.title;
@@ -196,6 +195,32 @@
                     $('.pop-close').click(function() {
                         $(info.el).popover('hide');
                     });
+                },
+                eventMouseEnter: function(info) {
+                    info.el.style.cursor = 'pointer';
+
+                    // Выделение события при наведении (другой цвет фона и текста)
+                    info.el.style.backgroundColor = '#dc3545'; // другой цвет фона
+                    info.el.style.borderColor = '#dc3545';
+                    info.el.style.color = '#333'; // другой цвет текста
+
+                    // Показ дополнительной информации
+                    var tooltip = document.createElement('div');
+                    tooltip.classList.add('tooltip');
+                    tooltip.textContent = info.event.title;
+                    document.body.appendChild(tooltip);
+                },
+                eventMouseLeave: function(info) {
+                    // Возвращение стандартного курсора и стиля при выходе из события
+                    info.el.style.cursor = '';
+                    info.el.style.backgroundColor = '';
+                    info.el.style.borderColor = '';
+
+                    // Удаление всплывающей подсказки
+                    var tooltip = document.querySelector('.tooltip');
+                    if (tooltip) {
+                        tooltip.remove();
+                    }
                 }
             });
 
@@ -276,10 +301,5 @@
             </div>
         </div>
     </div>
-
-
-
-
-    <!-- /.content -->
 
 @endsection
