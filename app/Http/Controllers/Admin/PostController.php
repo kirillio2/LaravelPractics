@@ -3,8 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
@@ -32,17 +31,11 @@ class PostController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         $categories = Category::all();
 
         return view('admin.post.create', compact('categories'));
-=======
-        return view('admin.post.create');
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-        return view('admin.post.create');
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
+
     }
 
     /**
@@ -50,8 +43,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         $new_post = new Post();
         $new_post->title = $request->title;
         $new_post->text = $request->text;
@@ -60,26 +52,15 @@ class PostController extends Controller
         $new_post->save();
 
         return redirect()->back()->withSuccess('Категория успешно добавлена!');
-=======
-        //
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-        //
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     }
 
     /**
      * Display the specified resource.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function show(string $id)
-=======
+
+
+
     public function show(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-    public function show(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     {
         //
     }
@@ -87,13 +68,12 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
+
     public function edit(string $id)
-=======
+
     public function edit(Post $post)
 >>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
+
     public function edit(Post $post)
 >>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     {

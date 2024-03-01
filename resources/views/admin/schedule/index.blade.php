@@ -11,10 +11,10 @@
         .card-primary {
             width: 200px;
         }
-        .card-header{
+
+        .card-header {
             padding: 0.1rem 1.25rem;
         }
-
     </style>
     <script>
         $('body').delegate("#dropdownMenuButton", "click", function() {
@@ -41,87 +41,9 @@
             // Устанавливаем обработчики событий на элементы с классом .btn-secondary
             $('body').on("mouseenter", "a.btn-secondary", addTooltipId);
             $('body').on("mouseleave", "a.btn-secondary", removeTooltipId);
-        });
-
-        // var jsonEventSources =
-        //     '[{"events":[{"title":"event1","start":"2024-02-25"},{"title":"event2","start":"2024-02-26","end":"2024-02-27"},{"title":"event3","start":"2024-02-26T12:30:00"}],"color":"black","textColor":"yellow"}]';
-        // var eventSources = JSON.parse(jsonEventSources);
-        var eventSources = [{
-            events: [{
-
-                    title: 'История Казахстана',
-                    start: '2024-02-25T12:30:00',
-                    end: '2024-02-25T13:00:00',
-                    data: {
-                        title: "Заголовок события 1",
-                        content: '<div class="card card-primary collapsed-card">' +
-                            '<b>Время: 12:30</b>' +
-                            '<b>Кабинет: 112A</b>' +
-                            '<b>Преподователь:</b>' +
-                            '<div class="card-header">' +
-                            '<h4 class="card-title" style="font-size: 0.99rem;">Альшанова Б.Х.</h4>' +
-                            '<div class="card-tools">' +
-                            '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
-                            '<i class="fas fa-plus"></i>' +
-                            '</a>' +
-                            '</div>' +
-                            '</div>' +
-                            '<div class="card-body" style="display: none;">' +
-                            'Контакты: +77773286688, Alshanova47@mail.ru' +
-                            '</div>' +
-                            '</div>' +
-
-                            '<div class="card card-primary collapsed-card">' +
-                            '<b>Материалы:</b>' +
-                            '<div class="card-header">' +
-                            '<h4 class="card-title" style="font-size: 0.99rem;">Материалы ДОТ:</h4>' +
-                            '<div class="card-tools">' +
-                            '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' +
-                            '<i class="fas fa-plus"></i>' +
-                            '</a>' +
-                            '</div>' +
-                            '</div>' +
-                            '<div class="card-body" style="display: none;">' +
-                            '<a href="aa">PDF</a> Справочник путеводить 2023.pdf <br><br> <a href="aa">Запись</a> Острянина Т.К 19.02 10.30' +
-                            '</div>' +
-                            '</div>'
-                    }
-                },
-                {
-                    title: 'Автоматизация бухгалтерского учета в 1С: Предприятие',
-                    start: '2024-02-27T12:30:00',
-                    end: '2024-02-27T13:00:00',
-                    data: {
-                        title: "Заголовок события 2",
-                        content: "<b>Преподователь:</b> Альшанова Б.Х. </br> Контакты: +77773286688, </br>Alshanova47@mail.ru </br> <b>Материалы ДОТ:</b> <a>PDF</a> "
-                    }
-                },
-                {
-                    title: 'Клиент-серверные технологии',
-                    start: '2024-02-26T12:30:00',
-                    end: '2024-02-26T13:00:00',
-                    data: {
-                        title: "Заголовок события 3",
-                        content: "Подробная информация о событии 3цукап купук пук пукпу пуп упу у пп"
-                    }
-                },
-                {
-                    title: 'Клиент-серверные технологии',
-                    start: '2024-02-28T13:20:00',
-                    end: '2024-02-28T14:00:00',
-                    data: {
-                        title: "Заголовок события 4",
-                        content: '<a role="button" class="btn btn-secondary" ' +
-                            'data-bs-toggle="tooltip" data-bs-placement="top" ' +
-                            'data-bs-custom-class="custom-tooltip" ' +
-                            'data-bs-title="This top tooltip is themed via CSS variables.">' +
-                            'Преподователь' +
-                            '</a>'
-                    }
-                }
-            ],
-        }];
+        });  
     </script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -137,7 +59,7 @@
                 firstDay: 1,
                 nowIndicator: true,
                 navLinks: true,
-                eventSources: eventSources,
+                eventSources: 'http://127.0.0.1:8000/admin_panel/events',
 
                 headerToolbar: {
                     left: 'prev,next today',
@@ -260,6 +182,9 @@
         });
     </script>
 
+    {{-- @foreach ($schedules as $schedule)
+        <p>{{ $schedule->id }}</p>
+    @endforeach --}}
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
