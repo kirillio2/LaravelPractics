@@ -25,23 +25,32 @@
             var icon = $(this).find('i');
             icon.toggleClass('fa-minus fa-plus');
 
+            // Скрываем показываем body
+            var displayValue = $('#uniqueCardBody').css('display');
+
+            if (displayValue === 'block') {
+                $('#uniqueCardBody').css('display', 'none');
+            } else {
+                $('#uniqueCardBody').css('display', 'block');
+            }
+
         });
 
-        $(document).ready(function() {
-            function addTooltipId() {
-                var tooltipId = 'tooltip949932'; // ID элемента тултипа, который будет показан
-                $(this).attr('aria-describedby', tooltipId);
-            }
+        // $(document).ready(function() {
+        //     function addTooltipId() {
+        //         var tooltipId = 'tooltip949932'; // ID элемента тултипа, который будет показан
+        //         $(this).attr('aria-describedby', tooltipId);
+        //     }
 
-            // Функция, которая будет вызываться при уходе курсора с элемента
-            function removeTooltipId() {
-                $(this).removeAttr('aria-describedby'); // Удаляем атрибут aria-describedby
-            }
+        //     // Функция, которая будет вызываться при уходе курсора с элемента
+        //     function removeTooltipId() {
+        //         $(this).removeAttr('aria-describedby'); // Удаляем атрибут aria-describedby
+        //     }
 
-            // Устанавливаем обработчики событий на элементы с классом .btn-secondary
-            $('body').on("mouseenter", "a.btn-secondary", addTooltipId);
-            $('body').on("mouseleave", "a.btn-secondary", removeTooltipId);
-        });  
+        //     // Устанавливаем обработчики событий на элементы с классом .btn-secondary
+        //     $('body').on("mouseenter", "a.btn-secondary", addTooltipId);
+        //     $('body').on("mouseleave", "a.btn-secondary", removeTooltipId);
+        // });  
     </script>
 
     <script>

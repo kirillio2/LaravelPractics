@@ -18,7 +18,7 @@ class ScheduleController extends Controller
         ]);
     }
 
-  public function events()
+   public function events()
 {
     // Получаем данные из модели Schedule
     $schedules = Schedule::all();
@@ -33,29 +33,24 @@ class ScheduleController extends Controller
             'title' => $schedule->nameDiscipline,
             'start' => $schedule->dateStartClass,
             'end' => $schedule->dateFinishClass,
-            // Пример использования других полей модели
             'data' => [
                 'content' => '<div class="card card-primary collapsed-card">' .
                     '<b>Время: ' . $schedule->dateStartClass . '</b>' .
                     '<b>Кабинет: ' . $schedule->numberCabinet . '</b>' .
-                    // Закрываем открывающий тег div
-                    '</div>'.
+                    '</div>' .
                     '<b>Преподователь:</b>' .
                     '<div class="card-header">' .
                     '<h4 class="card-title" style="font-size: 0.99rem; color: red;">Альшанова Б.Х.</h4>' .
                     '<div class="card-tools">' .
-                    '<a role="button" id="dropdownMenuButton" class="btn btn-tool" data-card-widget="collapse">' .
+                    '<a role="button" id="dropdownMenuButton" class="btn btn-tool">' .
                     '<i class="fas fa-plus"></i>' .
                     '</a>' .
                     '</div>' .
                     '</div>' .
-                    '<div class="card-body" style="display: none;">' .
+                    '<div class="card-body" id="uniqueCardBody">' .
                     'Контакты: +77773286688, Alshanova47@mail.ru' .
                     '</div>' .
                     '</div>' 
-
-                    
-                    // Добавьте остальные поля по вашему усмотрению
             ]
         ];
 
@@ -66,6 +61,5 @@ class ScheduleController extends Controller
     // Возвращаем данные в формате JSON
     return response()->json($events);
 }
-
 
 }
