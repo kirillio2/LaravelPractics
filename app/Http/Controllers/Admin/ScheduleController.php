@@ -10,56 +10,34 @@ class ScheduleController extends Controller
 {
     public function index()
     {
+        return view('admin.schedule.index');
+    }
 
+    public function events()
+    {
         $schedules = Schedule::all();
 
-        return view('admin.schedule.index', [
-            'schedules' => $schedules
-        ]);
+        $events = [];
+
+        foreach ($schedules as $schedule) {
+            $event = [
+                'title' => $schedule->nameDiscipline,
+                'start' => $schedule->dateStartClass,
+                'end' => $schedule->dateFinishClass,
+                'data' => [
+                    'time' => date('H:i', strtotime($schedule->dateStartClass)),
+                    'cabinet' => $schedule->numberCabinet,
+                    'nameTeacher' => $schedule->nameTeacher,
+                    'phoneTeacher' => $schedule->phoneTeacher,
+                    'mailTeacher' => $schedule->mailTeacher,
+                    'fileMaterial' => $schedule->fileMaterial,
+                    'recordingLecture' => $schedule->recordingLecture,
+                ]
+            ];
+
+            $events[] = $event;
+        }
+
+        return response()->json($events);
     }
-
-   public function events()
-{
-    // Получаем данные из модели Schedule
-    $schedules = Schedule::all();
-
-    // Инициализируем массив для хранения событий
-    $events = [];
-
-    // Проходим по каждой записи в $schedules
-    foreach ($schedules as $schedule) {
-        // Создаем массив с данными о событии
-        $event = [
-            'title' => $schedule->nameDiscipline,
-            'start' => $schedule->dateStartClass,
-            'end' => $schedule->dateFinishClass,
-            'data' => [
-                'content' => '<div class="card card-primary collapsed-card">' .
-                    '<b>Время: ' . $schedule->dateStartClass . '</b>' .
-                    '<b>Кабинет: ' . $schedule->numberCabinet . '</b>' .
-                    '</div>' .
-                    '<b>Преподователь:</b>' .
-                    '<div class="card-header">' .
-                    '<h4 class="card-title" style="font-size: 0.99rem; color: red;">Альшанова Б.Х.</h4>' .
-                    '<div class="card-tools">' .
-                    '<a role="button" id="dropdownMenuButton" class="btn btn-tool">' .
-                    '<i class="fas fa-plus"></i>' .
-                    '</a>' .
-                    '</div>' .
-                    '</div>' .
-                    '<div class="card-body" id="uniqueCardBody">' .
-                    'Контакты: +77773286688, Alshanova47@mail.ru' .
-                    '</div>' .
-                    '</div>' 
-            ]
-        ];
-
-        // Добавляем событие в массив $events
-        $events[] = $event;
-    }
-
-    // Возвращаем данные в формате JSON
-    return response()->json($events);
-}
-
 }

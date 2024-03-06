@@ -15,9 +15,16 @@
         .card-header {
             padding: 0.1rem 1.25rem;
         }
+
+        .card-body {
+            padding: 0.2rem 1.25rem;
+        }
+
+
+        
     </style>
     <script>
-        $('body').delegate("#dropdownMenuButton", "click", function() {
+        $('body').delegate("#dropdownMenuButton1", "click", function() {
             var dropdownMenu = $(this).next('.card-body');
             var collapsedCard = $(this).closest('.card');
             collapsedCard.toggleClass('collapsed-card');
@@ -26,31 +33,34 @@
             icon.toggleClass('fa-minus fa-plus');
 
             // Скрываем показываем body
-            var displayValue = $('#uniqueCardBody').css('display');
+            var displayValue = $('#uniqueCardBody1').css('display');
 
             if (displayValue === 'block') {
-                $('#uniqueCardBody').css('display', 'none');
+                $('#uniqueCardBody1').css('display', 'none');
             } else {
-                $('#uniqueCardBody').css('display', 'block');
+                $('#uniqueCardBody1').css('display', 'block');
             }
 
         });
 
-        // $(document).ready(function() {
-        //     function addTooltipId() {
-        //         var tooltipId = 'tooltip949932'; // ID элемента тултипа, который будет показан
-        //         $(this).attr('aria-describedby', tooltipId);
-        //     }
+        $('body').delegate("#dropdownMenuButton2", "click", function() {
+            var dropdownMenu = $(this).next('.card-body');
+            var collapsedCard = $(this).closest('.card');
+            collapsedCard.toggleClass('collapsed-card');
 
-        //     // Функция, которая будет вызываться при уходе курсора с элемента
-        //     function removeTooltipId() {
-        //         $(this).removeAttr('aria-describedby'); // Удаляем атрибут aria-describedby
-        //     }
+            var icon = $(this).find('i');
+            icon.toggleClass('fa-minus fa-plus');
 
-        //     // Устанавливаем обработчики событий на элементы с классом .btn-secondary
-        //     $('body').on("mouseenter", "a.btn-secondary", addTooltipId);
-        //     $('body').on("mouseleave", "a.btn-secondary", removeTooltipId);
-        // });  
+            // Скрываем показываем body
+            var displayValue = $('#uniqueCardBody2').css('display');
+
+            if (displayValue === 'block') {
+                $('#uniqueCardBody2').css('display', 'none');
+            } else {
+                $('#uniqueCardBody2').css('display', 'block');
+            }
+        });
+
     </script>
 
     <script>
@@ -69,6 +79,7 @@
                 nowIndicator: true,
                 navLinks: true,
                 eventSources: 'http://127.0.0.1:8000/admin_panel/events',
+                height: 800,
 
                 headerToolbar: {
                     left: 'prev,next today',
@@ -86,7 +97,7 @@
 
                 eventContent: function(arg) {
                     return {
-                        html: '<div class="custom-event">' + arg.event.title + '</div>',
+                        html: '<div class="custom-event">' + arg.event.title + '<span class="float-right badge bg-danger">842</span> ап</div>',
                         classNames: ['custom-event']
                     };
                 },
@@ -102,22 +113,56 @@
                     var title = event.title;
                     var start = event.startStr;
                     var end = event.endStr;
-
-                    // Обращение к данным из объекта data
                     var dataTitle = event.extendedProps.data.title;
                     var dataContent = event.extendedProps.data.content;
 
-                    // Удалить предыдущий popover, если он есть
                     $('.popover').remove();
+
+                    var popoverBody = '<b>Время: </b>' + event.extendedProps.data.time + '</br>' +
+                                    '<b>Кабинет: </b>' + event.extendedProps.data.cabinet  + '</br>' +
+                                    '<b>Преподователь:</b>' +
+                                    '<div class="card-header">' +
+                                    '<h4 class="card-title" style="font-size: 0.99rem; color: red;">' + event.extendedProps.data.nameTeacher  + '</h4>' +
+                                    '<div class="card-tools">' +
+                                    '<a role="button" id="dropdownMenuButton1" class="btn btn-tool">' +
+                                    '<i class="fas fa-plus"></i>' +
+                                    '</a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '<div class="card-body" id="uniqueCardBody1">' +
+                                    'Контакты: '+ event.extendedProps.data.phoneTeacher + ', </br>' + 
+                                    'Почта: ' + event.extendedProps.data.mailTeacher + '</br>' +
+                                    '</div>' +
+                                    '</div>' +
+
+                                    '<b>Материалы:</b>' +
+                                    '<div class="card-header">' +
+                                    '<h4 class="card-title" style="font-size: 0.99rem; color: red;">ДОТ</h4>' +
+                                    '<div class="card-tools">' +
+                                    '<a role="button" id="dropdownMenuButton2" class="btn btn-tool">' +
+                                    '<i class="fas fa-plus"></i>' +
+                                    '</a>' +
+                                    '</div>' +
+                                    '</div>' +
+                                    '<div class="card-body" id="uniqueCardBody2">' +
+                                    '<a href="'+ event.extendedProps.data.fileMaterial + '">PDF </a>Справочник путеводить 2023+pdf</br>' + 
+                                    '<a href="'+ event.extendedProps.data.ecordingLecture + '">Запись </a>Острянина Т.К 19.02 10.30</br>' + 
+                                    '</div>' +
+                                    '</div>' ;
+
+                    $(document).ready(function() {
+                        $('#uniqueCardBody1').css('display', 'none');
+                        $('#uniqueCardBody2').css('display', 'none');
+                    });
 
                     $(info.el).popover({
                         title: title,
-                        placement: 'top',
+                        placement: 'left',
                         trigger: 'manual',
-                        content: dataContent,
+                        content: popoverBody,
                         container: 'body',
                         html: true,
-                        template: '<div class="popover" role="tooltip"><div class="arrow"></div><span class="btn btn-link float-right pop-close">x</span><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
+                        template: '<div class="popover" role="tooltip"><div class="arrow"></div><span class="btn btn-link float-right pop-close">X</span><h3 class="popover-header"></h3><div class="popover-body"></div></div>'
                     });
 
                     // Показать popover
@@ -152,48 +197,59 @@
                     if (tooltip) {
                         tooltip.remove();
                     }
-                }
+                }, 
+                
+
             });
 
             // Функция для установки высоты календаря
-            function setCalendarHeight() {
-                var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body
-                    .clientHeight;
-                calendarEl.style.height = windowHeight + 'px';
-            }
+            // function setCalendarHeight() {
+            //     var windowHeight = window.innerHeight || document.documentElement.clientHeight || document.body
+            //         .clientHeight;
+            //     calendarEl.style.height = windowHeight + 'px';
+            // }
 
-            // Вызываем функцию установки высоты календаря при загрузке страницы и при изменении размеров окна
-            setCalendarHeight();
-            window.addEventListener('resize', setCalendarHeight);
+            // // Вызываем функцию установки высоты календаря при загрузке страницы и при изменении размеров окна
+            // setCalendarHeight();
+            // window.addEventListener('resize', setCalendarHeight);
 
             // Устанавливаем пользовательское отображение событий
             calendar.setOption('eventContent', function(arg) {
                 var currentView = calendar.view.type;
                 if (currentView === 'timeGridWeek') {
-                    return formatEventContent(arg);
+                    return formatEventContentTimeGridWeek(arg);
                 } else {
-                    return arg.event.title;
+                    return formatEventContent(arg);
                 }
             });
 
             // Вспомогательная функция для форматирования содержимого события для режима timeGridWeek
-            function formatEventContent(arg) {
+            function formatEventContentTimeGridWeek(arg) {
                 var title = arg.event.title;
                 if (title.length > 20) {
                     title = title.substring(0, 20) + '...';
                 }
                 return {
-                    html: '</div><div style="font-size: 10px">' + title + '</div>'
+                    html: '</div><div style="font-size: 10px">' + title + '<span class="float-right badge bg-success">NEW</span></div>'
                 };
             }
+
+            // Вспомогательная функция для форматирования содержимого события для всех кроме timeGridWeek
+            function formatEventContent(arg) {
+                var title = arg.event.title;
+                return {
+                    html: title + '<span class="float-right badge bg-success">NEW</span></div>'
+                };
+            }
+            
             calendar.render();
+
+
+            
 
         });
     </script>
 
-    {{-- @foreach ($schedules as $schedule)
-        <p>{{ $schedule->id }}</p>
-    @endforeach --}}
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
@@ -217,23 +273,5 @@
             </div>
         </div><!-- /.container-fluid -->
     </section>
-
-    <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
-            <!-- Добавлен класс modal-dialog-centered -->
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="eventModalLabel">Дисциплина</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="eventInfo">
-                    <!-- Здесь будет отображаться информация о событии -->
-                </div>
-            </div>
-        </div>
-    </div>
 
 @endsection
