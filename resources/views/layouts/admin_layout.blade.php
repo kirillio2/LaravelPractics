@@ -142,19 +142,47 @@
                             </ul>
                         </li>
 
+
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-calendar"></i>
                                 <p>
-                                    Расписание
+                                    Обучение
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
                                     <a href="{{ url('admin_panel/schedule') }}" class="nav-link">
-
-                                        <p>Посмотреть расписание</p>
+                                        <p>Расписание</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin_panel/academic-performance') }}" class="nav-link">
+                                        <p>Текущий контроль</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin_panel/record-book') }}" class="nav-link">
+                                        <p>Зачетная книжка</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin_panel/test-papers') }}" class="nav-link">
+                                        <p>Контрольные работы</p>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="{{ url('admin_panel/reference') }}" class="nav-link">
+                                        <p>Справки</p>
                                     </a>
                                 </li>
                             </ul>
@@ -199,7 +227,13 @@
     <script src="/admin/dist/js/pages/dashboard.js"></script>
     <script src="/admin/admin.js"></script>
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js'></script>
+
+
     <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.24/js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+
 
 </body>
 

@@ -7,14 +7,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Category;
-=======
-use App\Models\Post;
-use Illuminate\Http\Request;
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-use App\Models\Post;
-use Illuminate\Http\Request;
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
 
 class PostController extends Controller
 {
@@ -69,13 +61,7 @@ class PostController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(string $id)
-
     public function edit(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-
-    public function edit(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     {
         //
     }
@@ -83,15 +69,8 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function update(Request $request, string $id)
-=======
+
     public function update(Request $request, Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-    public function update(Request $request, Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     {
         //
     }
@@ -99,15 +78,8 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-<<<<<<< HEAD
-<<<<<<< HEAD
-    public function destroy(string $id)
-=======
+
     public function destroy(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
-=======
-    public function destroy(Post $post)
->>>>>>> cf14059931aaadd06cd44d6dac513fd45fbc4038
     {
         //
     }
