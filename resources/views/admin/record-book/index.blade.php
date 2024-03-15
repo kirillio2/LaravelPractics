@@ -29,10 +29,11 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title">Оценки в зачетной книжке</h3>
                 <div class="d-flex ml-auto"> <!-- Добавлен класс ml-auto -->
-                    <label for="semesterFilter" class="mr-2">Семестр: </label> <!-- Перемещен и добавлен класс mr-2 для отступа -->
-                   
+                    <label for="semesterFilter" class="mr-2">Семестр: </label>
+                    <!-- Перемещен и добавлен класс mr-2 для отступа -->
+
                     <div class="form-group">
-                        
+
                         <select id="semesterFilter" class="form-control">
                             <option value="">Все</option>
                             <option value="1">1</option>
@@ -67,7 +68,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="card rounded-custom">
             <div class="card-header">
                 <h3 class="card-title">Описание</h3>
@@ -81,22 +82,38 @@
                             <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab"
                                 href="#product-comments" role="tab" aria-controls="product-comments"
                                 aria-selected="false">Разбалловка</a>
-                            <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating"
-                                role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
                         </div>
                     </nav>
                     <div class="tab-content p-3 w-100" id="nav-tabContent">
                         <div class="tab-pane fade show active" id="product-desc" role="tabpanel"
                             aria-labelledby="product-desc-tab">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic esse expedita sed amet
-                            optio veniam temporibus necessitatibus molestiae praesentium, magnam repudiandae assumenda
-                            sapiente ipsa delectus architecto voluptas exercitationem ipsum!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro molestias voluptatibus omnis
-                            officiis repudiandae corrupti quam illo adipisci! Necessitatibus nam magnam reiciendis ratione
-                            tempora vero veritatis quod eligendi voluptatem adipisci!
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, ex necessitatibus voluptatibus
-                            esse neque sequi! Totam incidunt earum voluptatibus asperiores quidem placeat autem, culpa aut
-                            sed vero saepe provident minus!
+                            <ul class="list-group list-group-flush">
+                                {{-- <div class="formula">
+                                    \( \frac{{P_{1} + P_{2}}}{2} = P_{ср}; \)
+                                    &nbsp;&nbsp;&nbsp;
+                                    \( \frac{{P_{ср} + ТК_{ср}}}{2} = РД \)
+                                </div> --}}
+
+                                <li class="list-group-item"><b>P<sub>1</sub>P<sub>2</sub></b> - Промежуточный рейтинг –
+                                    периодическая проверка учебных достижений обучающихся, проводимая согласно утвержденному
+                                    академическому календарю;</li>
+                                <li class="list-group-item"><b>ТК</b> - Текущий контроль успеваемости – систематическая
+                                    проверка учебных достижений обучающихся по каждой теме или разделу учебной дисциплины,
+                                    проводимая преподавателем, ведущим учебные занятия;</li>
+                                <li class="list-group-item"><b>РД</b> - Рейтинг допуска - оценка текущего контроля
+                                    успеваемости и расчитывается следующим образом:</li>
+                                <li class="list-group-item"><b>И</b> - Итоговая оценка по дисциплине включает оценки текущей
+                                    успеваемости и итогового контроля (экзаменационной оценки). Доля оценки текущей
+                                    успеваемости составляет 60% в итоговой оценке степени освоения обучающимся программы
+                                    учебной дисциплины. Оценка итогового контроля составляет 40% итоговой оценки знаний по
+                                    данной учебной дисциплине;</li>
+                                <li class="list-group-item"><b>И<sub>ц</sub></b> - Цифровой эквивалент итоговой оценки. В
+                                    соответствии с таблицей;</li>
+                                <li class="list-group-item"><b>И<sub>б</sub></b> - Буквенный эквивалент итоговой оценки. В
+                                    соответствии с таблицей;</li>
+                                <li class="list-group-item"><b>Трад. оценка</b> - Итоговая оценка по традиционной системе. В
+                                    соответствии с таблицей;</li>
+                            </ul>
                         </div>
                         <div class="tab-pane fade" id="product-comments" role="tabpanel"
                             aria-labelledby="product-comments-tab">
@@ -270,22 +287,13 @@
                                 </table>
                             </div>
                         </div>
-                        <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos hic esse expedita sed amet
-                            optio veniam temporibus necessitatibus molestiae praesentium, magnam repudiandae assumenda
-                            sapiente ipsa delectus architecto voluptas exercitationem ipsum!
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro molestias voluptatibus omnis
-                            officiis repudiandae corrupti quam illo adipisci! Necessitatibus nam magnam reiciendis ratione
-                            tempora vero veritatis quod eligendi voluptatem adipisci!
-                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga, ex necessitatibus voluptatibus
-                            esse neque sequi! Totam incidunt earum voluptatibus asperiores quidem placeat autem, culpa aut
-                            sed vero saepe provident minus!
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+
     {{-- <div class="container">
         <div class="row mt-4">
             <nav class="w-100">
@@ -498,8 +506,6 @@
             </div>
         </div>
     </div> --}}
-
-
 
     <script>
         $(document).ready(function() {
