@@ -3,143 +3,167 @@
 @section('title', 'Расписание')
 @section('content')
 
-    <div class="container">
-        <h2>Контрольные работы</h2>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Автоматизация бухгалтерского учета в 1С: Предприятие</h5>
-                    </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
+
+    <style>
+        .rounded-custom {
+            border-radius: 20px;
+        }
+    </style>
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Контрольные работы</h1>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Клиент-серверные технологии</h5>
-                    </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
+    <section class="content">
+        <div class="card rounded-custom">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title">Задания по контрольным работам</h3>
             </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Автоматизация бухгалтерского учета в 1С: Предприятие</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Java - технологии</h5>
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Клиент-серверные технологии</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Облачные вычисления и технологии</h5>
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Java - технологии</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Автоматизация бухгалтерского учета в 1С: Предприятие</h5>
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Облачные вычисления и технологии</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="card card-widget widget-user-2">
-                    <div class="widget-user-header bg-warning">
-                        <h5>Технологическое Предпринимательство и Стартапы</h5>
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Автоматизация бухгалтерского учета в 1С: Предприятие</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer p-0">
-                        <ul class="nav flex-column">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="modal" data-target="#modal-warning">
-                                    Контрольная работа 2 <span class="float-right badge bg-info">5</span>
-                                </a>
-                            </li>
-                        </ul>
+
+                    <div class="col-md-4">
+                        <div class="card card-widget widget-user-2">
+                            <div class="widget-user-header bg-warning">
+                                <h5>Технологическое Предпринимательство и Стартапы</h5>
+                            </div>
+                            <div class="card-footer p-0">
+                                <ul class="nav flex-column">
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal"
+                                            data-target="#modal-warning">
+                                            Контрольная работа 1 <span class="float-right badge bg-primary">31</span>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#" class="nav-link" data-toggle="modal"
+                                            data-target="#modal-warning">
+                                            Контрольная работа 2 <span class="float-right badge bg-info">5</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
+    </section>
 
     <div class="modal fade" id="modal-warning" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">

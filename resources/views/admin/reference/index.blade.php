@@ -2,142 +2,162 @@
 
 @section('title', 'Расписание')
 @section('content')
-    {{-- <style>
-@media (max-width: 767px) {
-    .table td,
-    .table th {
-        font-size: 12px; /* Размер шрифта для мобильных устройств */
-    }
-}
-</style> --}}
 
+    <style>
+        .rounded-custom {
+            border-radius: 20px;
+        }
+    </style>
+
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Справки</h1>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="content">
-        <h2>Справки</h2>
-        <div class="card-deck align-items-stretch">
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Справка с места учёбы</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
-                    </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
-                    </div>
-                </div>
+        <div class="card rounded-custom">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h3 class="card-title">Все доступные справки</h3>
             </div>
+            <div class="card-body">
+                <div class="card-deck align-items-stretch">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Справка с места учёбы</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
+                    </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Справка с места учёбы</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Справка с места учёбы</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
                     </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Справка с места учёбы</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Справка с места учёбы</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
                     </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4 mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title"> Документ, подтверждающий факт обучения в учебном заведении, если обучение не
-                            закончено должным образом или не получен диплом.</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title"> Документ, подтверждающий факт обучения в учебном заведении, если
+                                    обучение не
+                                    закончено должным образом или не получен диплом.</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
                     </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4  mb-4">
-                <div class="card h-100">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Справка с места учёбы</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
+                    <div class="col-md-4  mb-4">
+                        <div class="card h-100">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Справка с места учёбы</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
                     </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
-                    </div>
-                </div>
-            </div>
 
-            <div class="col-md-4  mb-4">
-                <div class="card h-100 ">
-                    <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">Справка с места учёбы</h5>
-                        <div class="card-divider"></div>
-                        <p class="card-text">
-                            <hr>
-                            Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
-                            должным образом или не получен диплом.
-                        </p>
-                    </div>
-                    <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
-                        <i class="fas fa-plus"></i>Заказать
-                    </a>
-                    <div class="card-footer">
-                        <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                    <div class="col-md-4  mb-4">
+                        <div class="card h-100 ">
+                            <img class="card-img-top" src="{{ asset('admin/images/reference/12.svg') }}"
+                                alt="Card image cap">
+                            <div class="card-body">
+                                <h5 class="card-title">Справка с места учёбы</h5>
+                                <div class="card-divider"></div>
+                                <p class="card-text">
+                                    <hr>
+                                    Документ, подтверждающий факт обучения в учебном заведении, если обучение не закончено
+                                    должным образом или не получен диплом.
+                                </p>
+                            </div>
+                            <a class="btn btn-app" data-toggle="modal" data-target="#modal-default">
+                                <i class="fas fa-plus"></i>Заказать
+                            </a>
+                            <div class="card-footer">
+                                <small class="text-muted">Онлайн - формируется в течении 3-х рабочих дней</small>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,14 +165,12 @@
     </section>
 
 
-
-
     <section class="content" id="references">
-        <div class="card">
-            <div class="card-header">
+        <div class="card rounded-custom">
+            <div class="card-header d-flex justify-content-between align-items-center">
                 <h3 class="card-title">Файлы на загрузке</h3>
             </div>
-            <div class="card-body p-0">
+            <div class="card-body">
                 <div class="table-responsive"> <!-- Добавлен класс для создания адаптивной таблицы -->
                     <table class="table table-striped projects">
                         <thead>
@@ -305,11 +323,6 @@
         </div>
     </section>
 
-    {{-- 
-    <button type="button" class="btn btn-success swalDefault">
-        Launch SweetAlert
-      </button> --}}
-
 
     <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
         <div class="modal-dialog">
@@ -331,15 +344,12 @@
         </div>
     </div>
 
-
     <script>
         // Обработчик события для кнопки
         document.querySelector('.swalDefault').addEventListener('click', function() {
 
             // После успешного заказа закрываем модальное окно
             $('#modal-default').modal('hide');
-
-
 
             // Предположим, что у вас есть переменная isSuccess, которая указывает на успешность операции
             var isSuccess = true; // Измените на false, чтобы увидеть сообщение об ошибке

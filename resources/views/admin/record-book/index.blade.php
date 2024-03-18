@@ -26,25 +26,26 @@
 
     <section class="content">
         <div class="card rounded-custom">
-            <div class="card-header d-flex justify-content-between align-items-center">
+            <div class="card-header d-flex justify-content-between align-items-center justify-content-center">
                 <h3 class="card-title">Оценки в зачетной книжке</h3>
-                <div class="d-flex ml-auto"> <!-- Добавлен класс ml-auto -->
-                    <label for="semesterFilter" class="mr-2">Семестр: </label>
-                    <!-- Перемещен и добавлен класс mr-2 для отступа -->
-
-                    <div class="form-group">
-
+                <div class="d-flex ml-auto">
+                    
+                    {{-- <label for="semesterFilter" class="mr-2">Семестр: </label> --}}
+            
+                    <div class="form-group m-0">
                         <select id="semesterFilter" class="form-control">
                             <option value="">Все</option>
                             <option value="1">1</option>
                             <option value="2" selected>2</option>
                         </select>
                     </div>
-                    <div class="form-group ml-3">
+            
+                    <div class="form-group m-0">
                         <input type="text" id="searchInput" class="form-control" placeholder="Поиск...">
                     </div>
                 </div>
             </div>
+            
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -118,18 +119,18 @@
                         <div class="tab-pane fade" id="product-comments" role="tabpanel"
                             aria-labelledby="product-comments-tab">
                             <div class="table-responsive">
-                                <table class="table table-bordered">
+                                <table class="table table-bordered table-sm">
                                     <tr>
-                                        <td align="center">
+                                        <td>
                                             <p>Оценка по буквенной системе</p>
                                         </td>
-                                        <td align="center">
+                                        <td>
                                             <p>Цифровой эквивалент оценки</p>
                                         </td>
-                                        <td align="center">
+                                        <td>
                                             <p>Процентное содержание (баллы)</p>
                                         </td>
-                                        <td align="center">
+                                        <td>
                                             <p>Оценка по традиционной системе</p>
                                         </td>
                                     </tr>
@@ -292,220 +293,6 @@
             </div>
         </div>
     </section>
-
-
-    {{-- <div class="container">
-        <div class="row mt-4">
-            <nav class="w-100">
-                <div class="nav nav-tabs" id="product-tab" role="tablist">
-                    <a class="nav-item nav-link active" id="product-desc-tab" data-toggle="tab" href="#product-desc"
-                        role="tab" aria-controls="product-desc" aria-selected="true">Примечание</a>
-                    <a class="nav-item nav-link" id="product-comments-tab" data-toggle="tab" href="#product-comments"
-                        role="tab" aria-controls="product-comments" aria-selected="false">Comments</a>
-                    <a class="nav-item nav-link" id="product-rating-tab" data-toggle="tab" href="#product-rating"
-                        role="tab" aria-controls="product-rating" aria-selected="false">Rating</a>
-                </div>
-            </nav>
-            <div class="tab-content p-3" id="nav-tabContent">
-                <div class="tab-pane fade show active" id="product-desc" role="tabpanel" aria-labelledby="product-desc-tab">
-                    <p>P1, P2 - Промежуточный рейтинг – периодическая проверка учебных достижений обучающихся, проводимая
-                        согласно утвержденному академическому календарю;</p>
-                    <p>ТК - Текущий контроль успеваемости – систематическая проверка учебных достижений обучающихся по
-                        каждой теме или разделу учебной дисциплины, проводимая преподавателем, ведущим учебные занятия;</p>
-                    <p>РД - Рейтинг допуска - оценка текущего контроля успеваемости и расчитывается следующим образом:</p>
-                    <p>И - Итоговая оценка по дисциплине включает оценки текущей успеваемости и итогового контроля
-                        (экзаменационной оценки). Доля оценки текущей успеваемости составляет 60% в итоговой оценке степени
-                        освоения обучающимся программы учебной дисциплины. Оценка итогового контроля составляет 40% итоговой
-                        оценки знаний по данной учебной дисциплине;</p>
-                    <p>Иц - Цифровой эквивалент итоговой оценки. В соответствии с таблицей;</p>
-                    <p>Иб - Буквенный эквивалент итоговой оценки. В соответствии с таблицей;</p>
-                    <p>Трад. оценка - Итоговая оценка по традиционной системе. В соответствии с таблицей;</p>
-                </div>
-                <div class="tab-pane fade" id="product-comments" role="tabpanel" aria-labelledby="product-comments-tab">
-                    <div class="table-responsive">
-                        <table class="table table-bordered">
-                            <tr>
-                                <td align="center">
-                                    <p>Оценка по буквенной системе</p>
-                                </td>
-                                <td align="center">
-                                    <p>Цифровой эквивалент оценки</p>
-                                </td>
-                                <td align="center">
-                                    <p>Процентное содержание (баллы)</p>
-                                </td>
-                                <td align="center">
-                                    <p>Оценка по традиционной системе</p>
-                                </td>
-                            </tr>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>А</p>
-                                    </td>
-                                    <td>
-                                        <p>4,0</p>
-                                    </td>
-                                    <td>
-                                        <p>95-100</p>
-                                    </td>
-                                    <td rowspan="2">
-                                        <p>Отлично</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>А-</p>
-                                    </td>
-                                    <td>
-                                        <p>3,67</p>
-                                    </td>
-                                    <td>
-                                        <p>90-94</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>В+</p>
-                                    </td>
-                                    <td>
-                                        <p>3,33</p>
-                                    </td>
-                                    <td>
-                                        <p>85-89</p>
-                                    </td>
-                                    <td rowspan="4">
-                                        <p>Хорошо</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>В</p>
-                                    </td>
-                                    <td>
-                                        <p>3,0</p>
-                                    </td>
-                                    <td>
-                                        <p>80-84</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>В-</p>
-                                    </td>
-                                    <td>
-                                        <p>2,67</p>
-                                    </td>
-                                    <td>
-                                        <p>75-79</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>С+</p>
-                                    </td>
-                                    <td>
-                                        <p>2,33</p>
-                                    </td>
-                                    <td>
-                                        <p>70-74</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>С</p>
-                                    </td>
-                                    <td>
-                                        <p>2,0</p>
-                                    </td>
-                                    <td>
-                                        <p>65-69</p>
-                                    </td>
-                                    <td rowspan="4">
-                                        <p>Удовлетворительно</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>С-</p>
-                                    </td>
-                                    <td>
-                                        <p>1,67</p>
-                                    </td>
-                                    <td>
-                                        <p>60-64</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>D+</p>
-                                    </td>
-                                    <td>
-                                        <p>1,33</p>
-                                    </td>
-                                    <td>
-                                        <p>55-59</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>D</p>
-                                    </td>
-                                    <td>
-                                        <p>1,0</p>
-                                    </td>
-                                    <td>
-                                        <p>50-54</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <p>FХ</p>
-                                    </td>
-                                    <td>
-                                        <p>0,5</p>
-                                    </td>
-                                    <td>
-                                        <p>25-49</p>
-                                    </td>
-                                    <td rowspan="2">
-                                        <p>Неудовлетворительно</p>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <p>F</p>
-                                    </td>
-                                    <td>
-                                        <p>0</p>
-                                    </td>
-                                    <td>
-                                        <p>0-24</p>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <div class="tab-pane fade" id="product-rating" role="tabpanel" aria-labelledby="product-rating-tab"> Cras ut
-                    ipsum ornare, aliquam ipsum non, posuere elit. In hac habitasse platea dictumst. Aenean elementum leo
-                    augue, id fermentum risus efficitur vel. Nulla iaculis malesuada scelerisque. Praesent vel ipsum felis.
-                    Ut molestie, purus aliquam placerat sollicitudin, mi ligula euismod neque, non bibendum nibh neque et
-                    erat. Etiam dignissim aliquam ligula, aliquet feugiat nibh rhoncus ut. Aliquam efficitur lacinia
-                    lacinia. Morbi ac molestie lectus, vitae hendrerit nisl. Nullam metus odio, malesuada in vehicula at,
-                    consectetur nec justo. Quisque suscipit odio velit, at accumsan urna vestibulum a. Proin dictum, urna ut
-                    varius consectetur, sapien justo porta lectus, at mollis nisi orci et nulla. Donec pellentesque tortor
-                    vel nisl commodo ullamcorper. Donec varius massa at semper posuere. Integer finibus orci vitae vehicula
-                    placerat. </div>
-            </div>
-        </div>
-    </div> --}}
 
     <script>
         $(document).ready(function() {
